@@ -4,7 +4,6 @@ import type { ActionType, ProColumns, ProDescriptionsItemProps } from '@ant-desi
 import {
   FooterToolbar,
   ModalForm,
-  PageContainer,
   ProDescriptions,
   ProFormText,
   ProFormTextArea,
@@ -67,7 +66,7 @@ const handleUpdate = async (fields: FormValueType) => {
  * @param selectedRows
  */
 const handleRemove = async (selectedRows: API.RuleListItem[]) => {
-  const hide = message.loading('正在删除');
+  const hide = message.loading('Deleteting');
   if (!selectedRows) return true;
   try {
     await removeRule({
@@ -242,7 +241,7 @@ const TableList: React.FC = () => {
   ];
 
   return (
-    <PageContainer>
+    <>
       <ProTable<API.RuleListItem, API.PageParams>
         headerTitle={intl.formatMessage({
           id: 'pages.searchTable.title',
@@ -390,7 +389,7 @@ const TableList: React.FC = () => {
           />
         )}
       </Drawer>
-    </PageContainer>
+    </>
   );
 };
 
